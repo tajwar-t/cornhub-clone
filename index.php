@@ -48,14 +48,17 @@ $result = $stmt->get_result();
 <body>
 <header>
     <h1>CornHub 🌽</h1>
-    <a href="upload.php">Upload a Video</a>
+
+    <div class="header-buttons">
+        <a href="manage_videos.php" class="manage-btn">Manage Videos</a>
+    </div>
 
     <form method="get" style="margin-top:10px;">
-        <input type="text" name="search" placeholder="Search..." value="<?php echo htmlspecialchars($search); ?>">
+        <input type="text" name="search" placeholder="Search..." value="<?php echo htmlspecialchars($search ?? ''); ?>">
         <select name="category">
             <option value="">All Categories</option>
-            <?php foreach($categories as $cat): ?>
-                <option value="<?php echo $cat; ?>" <?php if($cat==$categoryFilter) echo 'selected'; ?>>
+            <?php foreach($categories ?? [] as $cat): ?>
+                <option value="<?php echo $cat; ?>" <?php if(($categoryFilter ?? '')==$cat) echo 'selected'; ?>>
                     <?php echo $cat; ?>
                 </option>
             <?php endforeach; ?>
