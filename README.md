@@ -30,6 +30,7 @@ Optional / Planned Features:
 
 ## Folder Structure
 
+'bash
 cornhub-clone/
 │
 ├─ index.php # Homepage + video gallery
