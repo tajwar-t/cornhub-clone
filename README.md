@@ -44,6 +44,7 @@ cornhub-clone
 ├── styles.css           # Main stylesheet
 ├── script.js            # JS for interactivity
 └── README.md            # Project documentation
+```
 
 ---
 
@@ -69,7 +70,7 @@ cornhub-clone
    $user = "root";
    $pass = "";
    $db   = "cornhub";
-
+   
    $conn = new mysqli($host, $user, $pass, $db);
    if ($conn->connect_error) {
        die("Connection failed: " . $conn->connect_error);
@@ -125,4 +126,7 @@ This project is open-source and free to use for personal or educational purposes
 ## Author
 
 Tajwar 🌽
+
+```
+
 ```
