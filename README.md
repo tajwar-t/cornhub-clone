@@ -1,6 +1,4 @@
-========================================
-CornHub Clone - Corn Themed Video Platform
-========================================
+# CornHub Clone - Corn Themed Video Platform
 
 A playful, corn-themed video-sharing platform built with Plain HTML, CSS, JavaScript, and PHP.
 This project is a safe and legal parody inspired by video-sharing sites, designed to host fun corn-related videos.
