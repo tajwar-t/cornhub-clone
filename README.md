@@ -30,18 +30,20 @@ Optional / Planned Features:
 
 ## Folder Structure
 
-'bash
-cornhub-clone/
-│
-├─ index.php # Homepage + video gallery
-├─ upload.php # Video upload form
-├─ like.php # AJAX like handler
-├─ db.php # Database connection
-├─ uploads/ # Folder to store uploaded videos
-│ └─ thumbnails/ # Optional folder for thumbnails
-├─ styles.css # Main stylesheet
-├─ script.js # JS for interactivity
-└─ README.txt # Project documentation
+Run `tree` to see the structure:
+
+```bash
+$ tree cornhub-clone
+cornhub-clone
+├── index.php            # Homepage + video gallery
+├── upload.php           # Video upload form
+├── like.php             # AJAX like handler
+├── db.php               # Database connection
+├── uploads/             # Folder to store uploaded videos
+│   └── thumbnails/      # Optional folder for thumbnails
+├── styles.css           # Main stylesheet
+├── script.js            # JS for interactivity
+└── README.md            # Project documentation
 
 ---
 
@@ -67,7 +69,7 @@ cornhub-clone/
    $user = "root";
    $pass = "";
    $db   = "cornhub";
-   
+
    $conn = new mysqli($host, $user, $pass, $db);
    if ($conn->connect_error) {
        die("Connection failed: " . $conn->connect_error);
@@ -123,3 +125,4 @@ This project is open-source and free to use for personal or educational purposes
 ## Author
 
 Tajwar 🌽
+```
