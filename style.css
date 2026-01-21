@@ -178,7 +178,6 @@ button.like-btn:hover {
 .header-buttons {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
 }
 
 .manage-btn {

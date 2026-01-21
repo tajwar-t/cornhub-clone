@@ -1,20 +1,25 @@
 <?php
 session_start();
-
-$admin_user = "admin";
-$admin_pass = "password123";
+include 'db.php';
 $message = '';
 
 if(isset($_POST['login'])){
-    $username = $_POST['username'];
+    $username = $conn->real_escape_string($_POST['username']);
     $password = $_POST['password'];
 
-    if($username === $admin_user && $password === $admin_pass){
-        $_SESSION['admin'] = true;
-        header("Location: manage_videos.php");
-        exit;
+    $res = $conn->query("SELECT * FROM users WHERE username='$username'");
+    if($res->num_rows > 0){
+        $user = $res->fetch_assoc();
+        if(password_verify($password, $user['password'])){
+            $_SESSION['admin'] = true;
+            $_SESSION['username'] = $user['username'];
+            header("Location: manage_videos.php");
+            exit;
+        } else {
+            $message = "Incorrect password!";
+        }
     } else {
-        $message = "Invalid username or password!";
+        $message = "Username not found!";
     }
 }
 ?>
@@ -29,6 +34,7 @@ if(isset($_POST['login'])){
         font-family: Arial, sans-serif;
         background: linear-gradient(135deg, #fff8e1, #ffd54f);
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -92,7 +98,7 @@ if(isset($_POST['login'])){
 </style>
 </head>
 <body>
-
+<a style="padding: 0; background: transparent; margin-bottom: 50px; text-decoration: none; color: #000000" href="/"><h1>CornHub 🌽</h1></a>
 <form method="post">
     <h2>Admin Login 🌽</h2>
     <?php if($message) echo "<p class='message'>$message</p>"; ?>
@@ -100,6 +106,8 @@ if(isset($_POST['login'])){
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit" name="login">Login</button>
 </form>
-
+<p style="text-align:center; margin-top:30px;">
+    Don't have an account? <a href="register.php" style=" font-weight: 700; color:#ff9800; text-decoration:none;">Register here 🌽</a>
+</p>
 </body>
 </html>
